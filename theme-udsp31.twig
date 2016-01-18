@@ -1,0 +1,2253 @@
+<!DOCTYPE html>
+<html lang="{{ Blog.Lang | default('en') }}">
+    <head>
+        {% title %}
+        {% meta %}
+        {% favicon %}
+        
+        <meta name="list:background_header:label.Image" items="none, Abstract-black, Abstract-blue, Abstract-blue-bubble, Abstract-blue-green, Abstract-blue-tech, Abstract-brown-blue, Abstract-colors, Abstract-cream, Abstract-gold, Abstract-green, Abstract-green2, Abstract-green3, Abstract-orange-pink, Abstract-pastel, Abstract-red, Abstract-round, Abstract-yellow, Amp-buttons, Animals-drawing, Apartment, Astrology, Baloon, Bass-guitar, Beach, Beach2, Beach3, Bike, Bikes, Binary-numbers, Biplan-plane, Black-car, Black-guitar, Black-leather, Blackboard, Blured-light, Boat, Book, Book-shelf, Bread, Briks, Brooklyn-bridge, Brown-texture, Cello, Chinese, Chocolate, Cinema, City-by-night, City-drawing, Concert, Cooking, Cooking2, Cork-stoppers, Dashboard, Desert, Desert-road, DJ, Dots, Drawing, Drawing-blue-flowers, Dressing, Eiffel-tower, Elephant, Eye, Fabric-green, Felin, Field, Finance, Fire, Fishes, Footing, Forest-autumn, Fruits, Gardening, Gold-paper, Gold-rings, Gold-wave, Golf, Graphiti, Graphiti2, Grass-and-tree, Guitars, Heart, Hearts, Hong-kong-by-night, Horses, Horses2, Iceberg, Lab, Ladybugs, Layout, Layout-and-tools, Lily-patern, London-by-night, Makeup, Makeup2, Microprocessor, Monument-valley, Monuments, Moon-rise, Moto, Moto2, Moto3, Mountain-snow, Muscles, Music-studio, New-york-by-night, NYC-direction, Old-books, Old-car, Old-stamps, Orange-car, Orange-stars, Oxeye-daisy, Paradise-island, Paris-sepia, Patchwork, Patchwork2, Penguins, Pets, Pets2, Piano, Pink-flower, Plane-and-clunds, Red-car, Red-old-car, Rose, Sailboat, Sea-sky, Seattle, Sewing, Sewing2, Shopping, Ski, Skull, Snowflake, Starting-block, Stream-car, Sunset, Surf, Surfer, Taxis-NYC, The-world, Tools, Vegetables, Watch-mechanism, White-flowers, White-rose, Writing, Yellow-biplan-plane, Zen, Zodiac" default="Abstract-green" group="general" />
+        <meta name="image:custom_header:label.UseMyOwnImage" group="general" />
+        <meta name="list:title_display:label.TitleAndDescriptionDisplay" items="OnALightBox, OnADarkBox, OnAWhiteBox, OnABlackBox, Hidden" default="OnALightBox" group="general" />
+        <meta name="boolean:hide_description:label.HideDescription" default="false" group="general" />
+        
+        <!-- Graphique -->
+        <meta name="image:default_post_cover:label.defaultPostCover" group="graphical" />
+        <meta name="color:color1:label.primaryColor" default="#cea525" group="graphical" />
+        <meta name="list:background_body:label.BackgroundColorOrPatern" items="Binding-dark, Black, Black-wood, Blue, Blue-bubbles, Blue-dots, Blue-green-stripes, Blue-grey-streaks, Blue-panther, Blue-stripes, Blue-tiles, Brown-stars, Chimerical-floral, Clouds, Colored-crayons, Curl, Dark-denim, Dark-evolution, Dark-floral, Dark-grey, Dark-linen, Dark-metal, Dark-mini-mosaic, Dark-mosaic, Dark-stars, Denim, Dots-on-green, Dots-on-pink, Dyeing, Fades-floral, Fantastic-butterfly, Fashion, Foil, Green, Green-crosses, Green-floral-fantasy, Green-optical, Grey, Grey-canvas, Grey-dots, Grey-mosaic, Grey-stripes, Hearts, Irregular-stripes, Light-circles, Light-dots, Light-floral, Light-grey, Light-hexa, Light-mosaic, Light-triangle, Light-wool, Midnight-blue, Multicolored-dots, Multicolored-gingham, Night-mosaic, Orange, Orange-stripes, Pink, Pink-dots, Pink-floral-fantasy, Pink-grey-stripes, Pink-lotus, Purple, Purple-capsules, Purple-dots, Purple-stripes, Red, Red-floral-fantasy, Red-gingham, Royal-blue, Royal-butterfly, Royal-red, Royal-green, Sand, Scholar, Snowman, Tweed, Vichy, White, Zen" default="White" group="graphical" />
+         <meta name="string:custom_footer:label.footerText" default="SmartCeD © 2014" group="graphical"/>
+        
+        <!-- Fonts -->
+        <meta name="list:bodyFont:" items="Open Sans, Crimson Text, Oswald, Arimo, Leckerli One, Crimson Text, Sacramento, Droid Serif, Alegreya, Parisienne, Quantico, Audiowide, EB Garamond, Dancing Script, Lancelot, UnifrakturMaguntia, Merienda, Peralta, Josefin Sans, Amatic SC, Lora, Merriweather Sans, Merienda One, Roboto Slab" default="Crimson Text" group="Text" />
+        <meta name="list:titlesFont:Titres" items="Open Sans, Crimson Text, Raleway, Oswald, Arimo, Leckerli One, Crimson Text, Sacramento, Droid Serif, Alegreya, Parisienne, Quantico, Audiowide, EB Garamond, Dancing Script, Lancelot, UnifrakturMaguntia, Merienda, Peralta, Josefin Sans, Amatic SC, Lora, Merriweather Sans, Merienda One, Roboto Slab" default="Open Sans" group="Text" />  
+        
+        <!-- Menu Bar -->
+        <meta name="list:menu_position:label.Position" items="BellowTheHeader, OnTopOfThePage" default="BellowTheHeader" group="MenuBar" />
+        
+        <!-- Widget -->
+        <meta name="boolean:display_widget_search_form:label.displaySearchForm" group="Recherche" default="true"/>
+        <meta name="list:position_widget_search_form:Position dans la sidebar" group="Recherche" items="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18" default="1" />
+        <meta name="boolean:display_widget_subscribe:label.displaySubscribeForm" group="Abonnement" default="true"/>
+        <meta name="list:position_widget_subscribe:Position dans la sidebar" group="Abonnement" items="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18" default="2" />
+        <meta name="boolean:display_widget_about:label.displayBlogAbout" group="À propos" default="true"/>
+        <meta name="list:position_widget_about:Position dans la sidebar" group="À propos" items="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18" default="3" />
+        <meta name="boolean:display_widget_follow:label.displayFollowUs" group="Suivez-nous" default="true"/>
+        <meta name="list:position_widget_follow:Position dans la sidebar" group="Suivez-nous" items="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18" default="4" />
+        <meta name="string:facebook_username:label.facebookUsername" group="Suivez-nous" />
+        <meta name="string:twitter_username:label.twitterUsername" group="Suivez-nous" />
+        <meta name="string:googleplus_username:Google+ username" group="Suivez-nous" />
+        <meta name="string:pinterest_username:Pinterest username" group="Suivez-nous" />
+        <meta name="string:instagram_username:Instagram username" group="Suivez-nous" />
+        <meta name="boolean:display_widget_twitter:label.displayTwitter" group="Twitter" default="true" />
+        <meta name="list:position_widget_twitter:Position dans la sidebar" group="Twitter" items="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18" default="5" />
+        <meta name="string:twitter_title:label.TitleOfTheTwitterWidget" group="Twitter" default="Twitter" />
+        <meta name="string:twitter_number:label.QuantityOfTwitterPosts" group="Twitter" default="1" />
+        <meta name="boolean:display_widget_facebook:label.displayFacebook" group="Facebook" default="true" />
+        <meta name="list:position_widget_facebook:Position dans la sidebar" group="Facebook" items="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18" default="6" />
+        <meta name="string:facebook_title:label.TitleOfTheFacebookWidget" group="Facebook" default="Facebook" />
+        <meta name="string:facebook_number:label.QuantityOfFacebookPosts" group="Facebook" default="1" />
+        <meta name="boolean:display_widget_googleplus:label.displayGooglePlus" group="Google +" default="true" />
+        <meta name="list:position_widget_googleplus:Position dans la sidebar" group="Google +" items="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18" default="7" />
+        <meta name="string:googleplus_title:label.TitleOfTheGooglePlusWidget" group="Google +" default="Google+" />
+        <meta name="string:googleplus_number:label.QuantityOfGooglePlusPosts" group="Google +" default="1" />
+        <meta name="boolean:display_widget_foursquare:label.displayFoursquare" group="Foursquare" default="true" />
+        <meta name="list:position_widget_foursquare:Position dans la sidebar" group="Foursquare" items="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18" default="8" />
+        <meta name="string:foursquare_title:label.TitleOfTheFoursquareWidget" group="Foursquare" default="Foursquare" />
+        <meta name="string:foursquare_number:label.QuantityOfFoursquarePosts" group="Foursquare" default="1" />
+        <meta name="boolean:display_widget_instagram:label.displayInstagram" group="Instagram" default="true" />
+        <meta name="list:position_widget_instagram:Position dans la sidebar" group="Instagram" items="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18" default="9" />
+        <meta name="string:instagram_title:label.TitleOfTheInstagramWidget" group="Instagram" default="Instagram" />
+        <meta name="string:instagram_number:label.QuantityOfInstagramPosts" group="Instagram" default="1" />
+        <meta name="boolean:display_widget_youtube:label.displayYoutube" group="Youtube" default="true" />
+        <meta name="list:position_widget_youtube:Position dans la sidebar" group="Youtube" items="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18" default="10" />
+        <meta name="string:youtube_title:label.TitleOfTheYouTubeWidget" group="Youtube" default="YouTube" />
+        <meta name="string:youtube_number:label.QuantityOfYoutubePosts" group="Youtube" default="1" />
+        <meta name="boolean:display_widget_flickr:label.displayFlickr" group="Flickr" default="true" />
+        <meta name="list:position_widget_flickr:Position dans la sidebar" group="Flickr" items="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18" default="11" />
+        <meta name="string:flickr_title:label.TitleOfTheFlickrWidget" group="Flickr" default="Flickr" />
+        <meta name="string:flickr_number:label.QuantityOfFlickrPosts" group="Flickr" default="1" />
+        <meta name="boolean:display_widget_pinterest:label.displayPinterest" group="Pinterest" default="true" />
+        <meta name="list:position_widget_pinterest:Position dans la sidebar" group="Pinterest" items="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18" default="12" />
+        <meta name="string:pinterest_title:label.TitleOfThePinterestWidget" group="Pinterest" default="Pinterest" />
+        <meta name="string:pinterest_number:label.QuantityOfPinterestPosts" group="Pinterest" default="1" />
+        <meta name="boolean:display_widget_tumblr:label.displayTumblr" group="Tumblr" default="true" />
+        <meta name="list:position_widget_tumblr:Position dans la sidebar" group="Tumblr" items="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18" default="13" />
+        <meta name="string:tumblr_title:label.TitleOfTheTumblrWidget" group="Tumblr" default="Tumblr" />
+        <meta name="string:tumblr_number:label.QuantityOfTumblrPosts" group="Tumblr" default="1" />
+        <meta name="boolean:display_widget_pages:label.displayPages" group="Pages" default="true" />
+        <meta name="list:position_widget_pages:Position dans la sidebar" group="Pages" items="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18" default="14" />
+        <meta name="boolean:display_widget_tags:label.displayTags" group="Pages" default="true" />
+        <meta name="list:tags_number:label.numberOfTags" items="0,1,2,3,4,5,6,7,8,9,10,20,30,40,50" group="Catégories" default="5"/>  
+        <meta name="list:position_widget_tags:Position dans la sidebar" group="Catégories" items="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18" default="15" />
+        <meta name="boolean:display_widget_free_html_1:label.displayFreeModule1" group="Module libre 1" default="true" />
+        
+        <meta name="list:position_widget_free_html_1:Position dans la sidebar" group="Module libre 1" items="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18" default="17" />
+        <meta name="string:free_title_1:label.Widgettitle" group="Module libre 1" />
+        <meta name="text:free_html_1:label.freeModuleHTML1" group="Module libre 1" />
+        <meta name="boolean:display_widget_free_html_2:label.displayFreeModule2" group="Module libre 2" default="true" />
+        <meta name="list:position_widget_free_html_2:Position dans la sidebar" group="Module libre 2" items="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18" default="18" />
+        <meta name="string:free_title_2:label.Widgettitle" group="Module libre 2" />
+        <meta name="text:free_html_2:label.freeModuleHTML1" group="Module libre 2" />
+        
+        <!-- Sidebar -->
+        <meta name="list:sidebar_position:Position dans la sidebar" group="Sidebar" items="Droite, Gauche" default="Droite" />
+        <meta name="boolean:sidebar_display_cover_cover:label.displayCover" group="Sidebar" default="true" />
+        
+        <!-- Normalize -->
+        <link href='//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css' rel='stylesheet' type='text/css' />
+        
+        <!-- Fonts -->
+        <link href='//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet' type='text/css' />
+        <link href='//fonts.googleapis.com/css?family={{ Custom('bodyFont')|url_encode }}' rel='stylesheet' type='text/css' />
+        <link href='//fonts.googleapis.com/css?family={{ Custom('titlesFont')|url_encode }}' rel='stylesheet' type='text/css' />  
+        
+        <!-- jQuery -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.12/jquery.mousewheel.min.js" type="text/javascript"></script>
+
+        <!-- Fancybox -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.pack.js" type="text/javascript"></script>
+        <link href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+        <link href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/helpers/jquery.fancybox-thumbs.css" rel="stylesheet" type="text/css"/>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/helpers/jquery.fancybox-thumbs.js" type="text/javascript"></script> 
+
+        <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <style type="text/css">
+            /********************************
+                         Reset
+            ********************************/
+            
+            * { box-sizing: border-box; }
+            a { color: {{ Custom('color1') }}; text-decoration: none; }
+            a:hover { color: {{ Custom('color1') }}; text-decoration: underline; }
+            h1, h2, h3, h4, h5 {
+                font-family: '{{ Custom('titlesFont') }}';
+
+            }
+            html { font-family: '{{ Custom('bodyFont') }}'; }
+    
+            
+            /********************************
+                         Body
+            ********************************/
+            
+            .Body {
+                color: #606569;
+                font-size: 16px;
+                line-height: 26px;
+                {% if Custom('background_body') == 'Black' %}
+                    background-color: #000000;
+                {% elseif Custom('background_body') == 'Blue' %}
+                    background-color: #6d9bba;
+                {% elseif Custom('background_body') == 'Dark-grey' %}
+                    background-color: #404040;
+                {% elseif Custom('background_body') == 'Green' %}
+                    background-color: #a0ba6d;
+                {% elseif Custom('background_body') == 'Grey' %}
+                    background-color: #858585;
+                {% elseif Custom('background_body') == 'Light-grey' %}
+                    background-color: #d0d0d0;
+                {% elseif Custom('background_body') == 'Midnight-blue' %}
+                    background-color: #1c1e2a;
+                {% elseif Custom('background_body') == 'Orange' %}
+                    background-color: #eeab54;
+                {% elseif Custom('background_body') == 'Pink' %}
+                    background-color: #d7a4b6;
+                {% elseif Custom('background_body') == 'Purple' %}
+                    background-color: #a58695;
+                {% elseif Custom('background_body') == 'Red' %}
+                    background-color: #a02128;
+                {% elseif Custom('background_body') == 'White' %}
+                    background-color: #ffffff;
+                {% else %}
+                    background-image : url(http://assets.over-blog.com/t/catalog/images/background/body/{{ Custom('background_body') }}.png);
+                {% endif %}
+            }
+            
+            
+            body.withsharebar {
+                margin-top: 0;
+            }
+            
+            /********************************
+                         HeaderNav
+            ********************************/
+                   
+            .HeaderNav {
+                display: flex;
+                flex-direction: column;
+            }
+            
+            /********************************
+                         Header
+            ********************************/
+
+            .Header {
+                position: relative;
+                width: 100%;
+                {% if Custom('menu_position') == 'BellowTheHeader' %}
+                order: 1;
+                {% else %}
+                order: 2;
+                {% endif %}
+            }
+            
+            body.withsharebar .Header {
+                padding-top: 40px;
+            }
+            
+                .Header-content {
+                    margin: 10px 0;
+                    overflow: hidden;
+                    padding: 20px;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    left: 0;
+                    {% if Custom('title_display') == 'OnAWhiteBox' %}
+                    background: #fff;
+                    {% elseif Custom('title_display') == 'OnABlackBox' %}
+                    background: #000;
+                    {% elseif Custom('title_display') == 'OnADarkBox' %}
+                    background: rgba(0, 0, 0, .8);
+                    {% else %}
+                    background: rgba(255, 255, 255, .8);
+                    {% endif %}
+                }
+                
+                @media only screen and (min-width: 970px) {
+                .Header-content {
+                    width: 970px;
+                }
+                }
+
+                    .Header-title {
+                        font-family: '{{ Custom('titlesFont') }}';
+                        font-size: 30px;
+                        font-weight: 400;
+                        vertical-align: middle;
+                        text-transform: uppercase;
+                        letter-spacing: 2px;
+                        margin: 0;
+                        line-height: 40px;
+                        text-align: center;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                    }
+                    
+                        .Header-titleLink {         
+                            -o-transition: .3s;
+                            -ms-transition: .3s;
+                            -moz-transition: .3s;
+                            -webkit-transition: .3s;
+                            transition: .3s;
+                        }
+                        
+                        .Header-titleLink:hover {  
+                            opacity: 0.5;
+                            text-decoration: none;
+                        }
+                        
+                    .Header-subtitle {
+                        font-size: 18px;
+                        font-weight: 400;
+                        vertical-align: middle;
+                        margin: 0;
+                        line-height: 40px;
+                        text-align: center;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        {% if Custom('title_display') == 'OnABlackBox'or Custom('title_display') == 'OnADarkBox' %}
+                        color: white
+                        {% endif %}
+                    }
+                    
+                .Header-cover {
+                    display: block;
+                    width: 100%;
+                    min-height: 120px;
+                    object-fit: cover;
+                    padding: 0 10px;
+                    margin: auto;
+                    position: relative;
+                }
+                
+                @media only screen and (min-width: 970px) {
+                .Header-cover {
+                    width: 970px;
+                    padding: 0;
+                    background-color: white;
+                }
+                }
+                
+                    .Header-coverImage {
+                        display: block;
+                        width: 100%;
+                    }
+    
+
+            /********************************
+                         Nav
+            ********************************/
+            
+            .Nav {
+                {% if Custom('menu_position') == 'OnTopOfThePage' %}
+                order: 1;
+                {% else %}
+                order: 2;
+                {% endif %}
+            }
+            
+                .Nav-content {
+                    position: relative;
+                    background: #f2f2f2;
+                    margin: 0 10px;
+                }
+                
+                @media only screen and (man-width: 970px) {
+                .Nav-content {
+                    text-align: right;
+                }
+                }
+            
+                
+                @media only screen and (min-width: 970px) {
+                .Nav-content {
+                    width: 970px;
+                    margin: auto;
+                }
+                }
+            
+                    .Nav-menuButton {
+                        display: inline-block;
+                        width: 50px;
+                        height: 50px;
+                        line-height: 50px;
+                        vertical-align: middle;
+                        text-align: center;
+                        font-size: 20px;
+                        color: white;
+                        background: {{ Custom('color1') }};
+                        cursor: pointer;
+                        -webkit-user-select: none;
+                        -moz-user-select: none;
+                        -ms-user-select: none;
+                        -o-user-select: none;
+                        user-select: none; 
+                    }
+                    
+                    @media only screen and (min-width: 970px) {
+                    .Nav-menuButton {
+                        display: none;
+                    }
+                    }
+                
+                
+                    .Nav-menu {
+                        position: absolute;
+                        top: 50px;
+                        width: 100%;
+                        list-style: none;
+                        padding: 0;
+                        margin: 0;
+                        z-index: 1;
+                        display: none;
+                    }
+                    
+                    .Nav-menu--open {
+                        display: block;
+                    }
+                    
+                    
+                    @media only screen and (min-width: 970px) {
+                        .Nav-menu {
+                            display: inline-block;
+                            position: relative;
+                            top: 0;
+                            width: auto;
+                        }
+                    }
+                    
+                        .NavElement {
+                            display: block;
+                            list-style: none;
+                            height: auto;
+                            position: relative;
+                            -webkit-transition: all 0.2s;
+                            -moz-transition:    all 0.2s;
+                            -ms-transition:     all 0.2s;
+                            -o-transition:      all 0.2s;
+                            transition:         all 0.2s;
+                        }
+                        
+                        @media only screen and (min-width: 970px) {
+                        .NavElement {
+                            display: inline-block;
+                        }
+                        }
+
+                            .NavElement-link {
+                                display: block;
+                                text-decoration: none;
+                                color: #000000;
+                                background: #f2f2f2;
+                                font-family: '{{ Custom('titlesFont') }}';
+                                font-size: 14px;
+                                text-transform: uppercase;
+                                padding: 0 15px;
+                                line-height: 45px;
+                                border-bottom: 2px solid #f2f2f2;
+                            }
+                            
+                            .NavElement-link:hover {
+                                background: #fff;
+                                border-bottom: 2px solid {{ Custom('color1') }};
+                                
+                            }
+                            
+                            @media only screen and (max-width: 970px) {
+                            .NavElement-link {
+                                display: block;
+                            }
+                            }
+                            
+                            .NavElement-link:hover {
+                                text-decoration: none;
+                            }
+                            
+                            
+                                .NavElementSub,
+                                .NavElementSubSub {
+                                    padding-left: 20px;
+                                    background-color: black;
+                                    -webkit-box-shadow: 0px 0px 4px 0 rgba(0, 0, 0, 0.2);
+                                    -moz-box-shadow: 0px 0px 4px 0 rgba(0, 0, 0, 0.2);
+                                    box-shadow: 0px 0px 4px 0 rgba(0, 0, 0, 0.2);
+                                    background: #ffffff;
+                                    list-style: none; 
+                                }
+                                
+                                    .NavElementSub-element {
+                                        padding: 0;
+                                        display: block;
+                                        width: 100%;
+                                        position: relative;
+                                    }
+                                        
+                                        .NavElementSub-link,
+                                        .NavElementSubSub-link {    
+                                            background: #ffffff;
+                                            color: #000000;
+                                            padding: 0 25px;
+                                            font-size: 13px;
+                                            text-decoration: none;
+                                            font-family: '{{ Custom('titlesFont') }}';
+                                        }
+                                        
+                                        @media only screen and (max-width: 970px) {
+                                        .NavElementSub .NavElement-link,
+                                        .NavElementSubSub .NavElement-link {
+                                            padding: 0 30px 0 30px;
+                                        }
+                                        }
+                                
+                                @media only screen and (min-width: 970px) {
+                                .NavElementSub,
+                                .NavElementSubSub {  
+                                    left: 0;
+                                    position: absolute;
+                                    top: 47px;
+                                    text-align: center;
+                                    width: 300px;
+                                    z-index: 1000;
+                                    padding-left: 0;
+                                    display: none;
+                                    -webkit-transition: all 0.2s;
+                                    -moz-transition:    all 0.2s;
+                                    -ms-transition:     all 0.2s;
+                                    -o-transition:      all 0.2s;
+                                    transition:         all 0.2s;
+                                }
+                                
+                                .NavElementSubSub {
+                                    left: 300px;
+                                    position: absolute;
+                                    top: 0;
+                                }
+                        
+                                
+                                .NavElementSub-link,
+                                .NavElementSubSub-link {
+                                    line-height: 40px;
+                                    border-top: 1px solid #e0e0e0;
+                                    display: block;
+                                }
+                                
+                                .NavElementSub-link:hover,
+                                .NavElementSubSub-link:hover {
+                                    text-decoration: none;
+                                    color: #000000;
+                                }
+                                
+                                .NavElementSub-element:first-child .NavElementSub-link,
+                                .NavElementSubSub-element:first-child .NavElementSub-link {
+                                    border-top: 0;
+                                }
+                                
+                                .NavElement:hover .NavElementSub,
+                                .NavElementSub-element:hover > .NavElementSubSub {
+                                    /*opacity: 1;*/
+                                    display: block;
+                                }
+                                }
+                            
+                        .Nav-archives,
+                        .Nav-links {
+                            display: none; 
+                        }
+
+
+            /********************************
+                         Content
+            ********************************/
+            
+            .Content {
+                margin: auto;
+                padding: 10px 0;
+            }
+            
+            @media only screen and (min-width: 970px) {
+                .Content {
+                    margin: auto;
+                    width: 970px;
+                    display: -webkit-box;
+                    display: -moz-box;
+                    display: -ms-flexbox;
+                    display: -webkit-flex;
+                    display: flex;        
+                    flex-direction: row;
+                    flex: 1;
+                    align-items: flex-start;
+                }
+            }
+            
+            .Content--index {
+
+            }
+            .Content--page {}
+            .Content--special {}
+            
+                .Content-main {
+                    background-color: white;
+                    padding: 10px;
+                    overflow: hidden;
+                }
+            
+                @media only screen and (min-width: 970px) {
+                .Content-main {
+                    flex-grow: 1;
+                    flex-shrink: 1;
+                    flex-basis: auto;
+                    {% if Custom('background_body') == 'White' %}
+                    padding: 0;
+                    {% endif %}
+                    
+                    {% if Custom('sidebar_position') == 'Gauche' %}
+                    order: 2;
+                    margin-left: 10px;
+                    {% else %}
+                    border-right: 1px solid #d9d9d9;
+                    padding-right: 10px;
+                    {% endif %}
+                }
+                }
+
+
+            /********************************
+                      PostPreview
+            ********************************/
+            .PostPreview-container {
+                overflow: auto;
+                zoom: 1;
+            }
+            
+                .PostPreview {
+                    width: 100%;  
+                    padding: 30px 0;
+                    border-top: 1px solid #d9d9d9;
+                }
+                
+                .PostPreview:first-child {
+                    padding-top: 0;
+                    border-top: 0;
+                }
+                    
+                    .PostPreview-cover {
+                        display: block;
+                        width: 100%;
+                        position: relative;
+                        margin: 0;
+                    }
+                    
+                        .PostPreview-coverImage {
+                            width:  100%;
+                            object-fit: cover;
+                            display: block;
+                            outline: none;
+                            border: none;
+                        }
+
+                            
+                        .PostPreview-tags {
+                            position: absolute;
+                            top: 0;
+                            left: 10px;
+                            padding: 0 20px;
+                            line-height: 25px;
+                            color: white;
+                            text-transform: uppercase;
+                            font-size: 12px;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            max-width: 100%;
+                            font-family: '{{ Custom('titlesFont') }}';
+                            background-color: {{ Custom('color1') }};
+                        }
+                        
+                        .PostPreview-tags a,
+                        .PostPreview-tags a:hover{
+                            color: white;
+                        }
+                        
+                        
+                    .PostPreview-content {
+ 
+                    }
+                    
+                        .PostPreview-meta {
+                            width: 100%;
+                            margin-bottom: 0;
+                        }   
+                        
+                        
+                        .PostPreviewMeta {
+                            display: flex;  
+                            color: #a6a6a6;
+                            text-transform: uppercase;
+                            font-size: 11px;
+                        }
+                        
+                            
+                            .PostPreviewMeta-date {
+                                flex: 2;
+                            }
+                            
+                            .PostPreviewMeta-source {
+                                flex: 3;
+                                text-align: center;
+                            }
+                            
+                            .PostPreviewMeta-comments {
+                                flex: 1;
+                                text-align: right;
+                            }
+                    
+                        .PostPreview-title {
+                             font-family: '{{ Custom('titlesFont') }}';
+                             font-size: 14px;
+                             line-height: 20px;
+                             overflow: hidden;
+                             text-overflow: ellipsis;
+                             white-space: nowrap;
+                             margin: 10px 0;
+                             text
+                        }
+                        
+                        .PostPreview-snippet { 
+                            margin: 0;
+                        }
+                        
+                        .PostPreview-readMore {
+                            display: inline-block;
+                            text-transform: uppercase;
+                            font-size: 12px;
+                            padding: 0 20px;
+                            margin-top: 10px;
+                            line-height: 25px;
+                            color: #ffffff;
+                            background: {{ Custom('color1') }}; 
+                        }
+                        
+                        .PostPreview-readMore:hover {
+                            color: #ffffff;
+                        }
+            
+            @media only screen and (min-width: 970px) {
+                .PostPreview {
+                    display: flex;
+                }
+                
+                    .PostPreview-cover {
+                        flex: 1;
+                        opacity: 1;
+                        -webkit-transition: opacity .4s ease-in-out;
+                        -moz-transition: opacity .4s ease-in-out;
+                        -o-transition: opacity .4s ease-in-out;
+                        transition: opacity .4s ease-in-out;
+                    }
+                    
+                    .PostPreview-cover:hover {
+                        opacity: 0.8;
+                        -webkit-transition: opacity .4s ease-in-out;
+                        -moz-transition: opacity .4s ease-in-out;
+                        -o-transition: opacity .4s ease-in-out;
+                        transition: opacity .4s ease-in-out;
+                    }
+                    
+                    .PostPreview-content {
+                        flex: 1;
+                        overflow: hidden;
+                    }
+                    
+                    .PostPreview-cover + .PostPreview-content {
+                        padding-left: 20px;
+                    }
+                    
+                        .PostPreview-meta {
+                            margin-top: 0;
+                        }
+            }
+                        
+                        
+                        
+
+                        
+            /********************************
+                        Post
+            ********************************/       
+            
+            .Post {         
+                width: 100%;
+                background-color: white;
+                {% if not isSingle %}
+                padding-bottom: 30px;
+                {% endif %}
+            }  
+                    
+                .Post-tags {
+                    text-align: center;
+                    display: block;
+                }
+                
+                    .Post-tag {
+                        text-transform: uppercase;
+                        font-family: '{{ Custom('titlesFont') }}';
+                        font-size: 11px;
+                        font-weight: 700;
+                        letter-spacing: 2px;
+                    }
+            
+        
+                .Post-title {  
+                    font-family: '{{ Custom('titlesFont') }}';
+                    font-size: 25px;
+                    line-height: 35px;
+                    text-transform: uppercase;
+                    letter-spacing: 2px;
+                    margin: 0;
+                    text-align: center;
+                }
+                
+                    .Post-titleLink {  
+                        color: #333;
+                        -o-transition: .3s;
+                        -ms-transition: .3s;
+                        -moz-transition: .3s;
+                        -webkit-transition: .3s;
+                        transition: .3s;
+                    }
+                    
+                    .Post-titleLink:hover {
+                        color: #333;
+                        opacity: .50; 
+                        text-decoration: none;
+                    }
+                
+                
+                .Post-date {
+                    font-family: '{{ Custom('titlesFont') }}';
+                    font-style: italic;
+                    font-size: 10px;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                    color: #939393;
+                    text-align: center;
+                    margin: 0;
+                } 
+                
+                .Post-author {
+                    text-align: center;
+                    margin: 0;
+                }
+                
+                .Post-cover {
+                    width: 100%;
+                    margin: 10px 0 0;
+                }
+                
+                    .Post-coverImage {
+                        width: 100%;
+                        display: block;
+                        background-color: black;
+                    }
+                
+                
+                .Post-snippet {}
+                
+                .Post-readMore {
+                    font-family: '{{ Custom('titlesFont') }}';
+                    text-align: center;
+                    display: block;
+                }
+                
+                .Post-body {
+                    margin: 10px 0;
+                    text-align: justify;
+                }
+                
+                .ob-Outbrain,
+                .ob-Related {
+                    margin-bottom: 10px;
+                }
+                @media only screen and (min-width: 970px) {
+                .ob-Outbrain,
+                .ob-Related {
+                    margin-bottom: 20px;
+                }
+                }
+                
+                .Post-shares {
+                    margin-top: 15px;
+                }
+                
+                .PostShares {
+                    position: relative;
+                    line-height: 45px;
+                    height: 45px;
+                    text-align: center;
+                    width: 100%;
+                }
+                
+                .PostShares:before {
+                    z-index: -1;
+                    position: absolute;
+                    width: 100%;
+                    left: 0;
+                    top: 50%;
+                    content : '';
+                    border-top: 1px solid #e5e5e5;
+                    z-index: 1;
+                }
+                
+                    .PostShares-facebook,
+                    .PostShares-twitter,
+                    .PostShares-googlePlus,
+                    .PostShares-pinterest,
+                    .PostShares-linkedin,
+                    .PostShares-overblog {
+                        border: 1px solid #e5e5e5;
+                        background-color: white;
+                        padding: 10px;
+                        line-height: 5px;
+                        margin: 0 5px;
+                        display: inline-block;
+                        border-radius: 50%;
+                        z-index: 2;
+                        position: relative;
+                    }
+                    
+                    .PostShares-facebook:hover,
+                    .PostShares-twitter:hover,
+                    .PostShares-googlePlus:hover,
+                    .PostShares-pinterest:hover,
+                    .PostShares-linkedin:hover,
+                    .PostShares-overblog:hover {
+                        text-decoration: none;
+                        background-color: #e5e5e5;
+                    }
+                    
+                .Post-returnToHome {
+                    display: block; 
+                    text-align: center;
+                    margin-bottom: 15px;                     
+                }
+                
+                .Post-about {
+                    overflow: auto;
+                    zoom: 1;
+                    margin-bottom: 10px;
+                }
+                
+                    .PostAbout-avatar {
+                        float:left;
+                        margin-right: 15px;
+                        border-radius: 50%;
+                    }
+                            
+                            
+            /********************************
+                         Sidebar
+            ********************************/
+            .Sidebar {
+                background-color: white;
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+            }
+            
+            @media only screen and (min-width: 970px) {
+            .Sidebar {
+                flex-shrink: 0;
+                flex-grow: 0;
+                flex-basis: 320px;
+                position: sticky;
+                top: 0px; 
+                {% if Custom('background_body') == 'White' %}
+                padding: 0;
+                {% endif %}
+                
+                {% if Custom('sidebar_position') == 'Gauche' %}
+                order: 1;
+                padding-right: 10px;
+                border-right: 1px solid #d9d9d9;
+                {% else %}
+                margin-left: 10px;
+                {% endif %}
+            }
+            
+            body.withsharebar .Sidebar {
+                top: 40px;
+            }
+            }
+                
+                .Sidebar-ad--300x250 {
+                    width: 100%;
+                    height: auto;
+                    margin: auto;
+                    overflow: auto;
+                    text-align: center;
+                }
+                
+                .Sidebar-ad--300x600 {
+                    width: 100%;
+                    height: auto;
+                    margin: auto;
+                    overflow: auto;
+                    text-align: center;
+                }
+                
+                
+                @media only screen and (min-width: 970px) {
+                .Sidebar-ad--300x250 {
+                    width: 300px;
+                    height: 250px;
+                    margin-bottom: 20px;
+                }
+                .Sidebar-ad--300x600 {
+                    width: 300px;
+                    height: 600px;
+                    margin-bottom: 20px;
+                }
+                }
+                
+                
+                .Sidebar-widget {
+                    margin-bottom: 20px;
+                }
+                
+                    .Sidebar-title {
+                        background: #f2f2f2;
+                        color: #19232d;
+                        font-family: '{{ Custom('titlesFont') }}';
+                        font-size: 13px;
+                        line-height: 35px;
+                        text-transform: uppercase;
+                        word-wrap: break-word;
+                        padding: 0 15px;
+                        margin: 0 0 20px;
+                    }
+                    
+                    .Sidebar-content {
+                        max-width: 100%;
+                        overflow: hidden;
+                    }
+                    
+                        .Sidebar-content iframe {
+                            width: 100%;
+                        }
+                    
+                    .Sidebar-post {
+                        border-top: 0;
+                        padding: 2px 0;
+                    }
+                    
+                    .Sidebar-widget .Sidebar-post:first-child {
+                        padding-top: 0;
+                    }
+                    
+                    .Sidebar-widget .Sidebar-post:last-child {
+                        padding-bottom: 0;
+                    }
+                    
+                        .Sidebar-post .PostPreview-content {
+                            flex: 2;
+                        }
+                
+                .SidebarAbout {}
+                
+                    .SidebarAbout-avatar {
+                        width: 100%;
+                    }
+                    
+                    .SidebarAbout-description {}
+                    
+                .SidebarFollow {
+                    padding-left: 0;
+                    text-align: center;
+                }
+                    
+                    .SidebarFollow-element {
+                        border: 0;
+                        display: inline-block;
+                        padding: 0;
+                        position: relative;
+                        text-align: center;
+                    }
+                    
+                        .SidebarFollow-elementLink {
+                            width: 40px;
+                            height: 40px;
+                            display: inline-block;
+                            font-weight: normal;
+                            font-style: normal;
+                            text-decoration: inherit;           
+                            background-color: #ebebeb;
+                        }
+                        
+                        .SidebarFollow-elementLink:hover {
+                            color: white;
+                            background: {{ Custom('color1') }};  
+                        }
+                        
+                        .SidebarFollow-elementLink .fa {
+                            width: 40px;
+                            line-height: 40px;
+                            font-size: 15px;
+                            text-align: center;
+                        }
+                        
+                .Sidebar-form {
+                    display: flex;
+                }
+                
+                    .SidebarForm-input {
+                        flex: 1 1 auto;
+                        font-size: 13px;
+                        line-height: 35px;
+                        height: 35px;
+                        padding: 0 10px;
+                        background: white;
+                        border: 1px solid #e5e5e5;
+                        color: {{ Custom('color1') }};  
+                    }
+                    
+                    .SidebarForm-input:focus {
+                        outline: none;
+                        border: 1px solid {{ Custom('color1') }};
+                    }
+                    
+                    .SidebarForm-submit {
+                        flex: 0 0 auto;
+                        font-size: 13px;
+                        height: 35px;
+                        line-height: 35px;
+                        padding: 0 10px;
+                        border: 0;
+                        margin-left: 10px;
+                        color: white;
+                        background: {{ Custom('color1') }};
+                    }
+                    
+                .Sidebar-list {
+                    list-style: none;
+                    padding-left: 0;
+                }
+                
+                
+            /********************************
+                         Title
+            ********************************/
+            
+            .Title {
+                font-family: '{{ Custom('titlesFont') }}';
+                text-transform: uppercase;
+                letter-spacing: 2px;
+            }
+            
+            /********************************
+                         Pagination
+            ********************************/
+            
+            .Pagination {
+                overflow: auto;
+                zoom: 1;
+                
+            }
+            
+                .PaginationLink {
+
+                }
+
+                .PaginationLink--previous {
+                    float: left;
+                }
+                
+                .PaginationLink--next {
+                    float: right;
+                }
+                
+            .ob-pagination {
+                
+                margin: auto;
+                margin: 0 auto;
+            }
+                
+                .ob-page {
+                    display: inline-block;
+                    padding: 0 10px;
+                    background: #ebebeb;
+                    font-family: sans-serif;
+                    font-size: 13px;
+                    height: 25px;
+                    line-height: 25px;
+                    
+                    margin: 0 2.5px;
+                }
+                
+                .ob-page-link:hover,
+                .ob-page-current {
+                    color: white;
+                    background: {{ Custom('color1') }};;
+                    text-decoration: none;
+                }
+            
+            
+            /********************************
+                         Footer
+            ********************************/
+            
+            .Footer, .ob-footer {
+                width: 100%;
+                text-align: center;
+                background-color: #f2f2f2;
+            }   
+            
+            .Footer {
+                padding: 15px 0;
+            }
+            
+            .ob-footer {
+                padding-bottom: 15px;
+            }
+
+                .Footer a,
+                .ob-footer a,
+                .Footer a:visited,
+                .ob-footer a:visited {
+                    color: {{ Custom('color1') }};
+                }
+                
+                
+            /********************************
+                         Ads
+            ********************************/
+            .Ad--970x90 {
+                width: 100%;
+                height: auto;
+                margin: 10px auto;
+                overflow: hidden;
+                text-align: center;
+            }
+            
+            @media only screen and (min-width: 970px) {
+            .Ad--970x90 {
+                width: 970px;
+                height: 90px;
+            }
+            }
+            
+            
+            /********************************
+                   Overblog surcharge
+            ********************************/
+            
+            .ob-text p:first-child {
+                margin-top: 0;
+            }
+                        
+            p.ob-desc {
+                text-align: center;
+                color: grey;
+                font-style: italic;
+            }
+
+            /* Section Quote */
+            .ob-section-quote .ob-quote .ob-quote-left,
+            .ob-section-quote .ob-quote .ob-quote-right {
+                fill: {{ Custom('color1') }};
+            }
+            
+            /* Section File */
+            .ob-section-file .ob-icon {
+                fill: {{ Custom('color1') }};
+            }
+
+            /* Section Audio */
+            .ob-section-audio .obsoundplayer .obsoundplayerplay .obsoundplayerplay-play,
+            .ob-section-audio .obsoundplayer .obsoundplayerplay .obsoundplayerplay-pause,
+            .ob-section-audio .obsoundplayer .obsoundplayervolume .obsoundplayervolume-on,
+            .ob-section-audio .obsoundplayer .obsoundplayervolume .obsoundplayervolume-off {
+                fill: {{ Custom('color1') }};
+            }
+            
+            @media only screen and (max-width: 660px) {            
+            .ob-section-images,
+            .ob-section-images img,
+            .ob-section-map .ob-map, 
+            .ob-section-map .ob-desc {
+                max-width: 100%;
+                width: auto;
+                height: auto;
+            }
+            }
+             
+        </style>
+    </head>
+    <!-- Body -->
+    <body class="Body">
+        <div class="HeaderNav">
+            <!-- Header -->
+            <div class="Header">
+                {% if (Custom('custom_header') is not empty) or (Custom('background_header') is not empty and Custom('background_header') != "none") %}
+                    <figure class="Header-cover">
+                    {% if Custom('custom_header') is not empty %}
+                        <img class="Header-coverImage" src="{{ Custom('custom_header') }}"/>
+                    {% elseif Custom('background_header') is not empty and Custom('background_header') != "none" %}
+                        <img class="Header-coverImage" src="//assets.over-blog.com/t/catalog/images/background/header/{{ Custom('background_header') }}.jpg"/>
+                    {% endif %}
+                    {% if Custom('title_display') != "Hidden" %}
+                        <div class="Header-content">
+                            <h1 class="Header-title HeaderTitle ">
+                                <a class="Header-titleLink" href="{{ Blog.Url }}">
+                                    {{ Blog.Title }}
+                                </a>
+                            </h1>
+                            {% if not Custom('hide_description') %}
+                            <p class="Header-subtitle">
+                                {{ Blog.Description }}       
+                            </p>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                    </figure>
+                {% endif %}
+                
+                
+            </div>
+            
+            <!-- Nav -->
+            <nav class="Nav">
+                <div class="Nav-content">
+                    <span class="Nav-menuButton">
+                        <span class="fa fa-fw fa-bars"></span>
+                    </span>
+                    <ul class="Nav-menu">
+                        <li class="Nav-home Nav-elementList NavElement">
+                            <a class="NavElement-link" href="{{ Blog.Url }}">{{ Lang.Get('Home') }}</a>  
+                        </li>
+
+                        <li class="Nav-elementList NavElement">
+                            <a class="NavElement-link" href="/presentation-de-l-udsp31.html">Qui sommes nous ?</a>
+                            <ul class="NavElement-sub NavElementSub">
+                                <li class="NavElementSub-element">
+                                    <a class="NavElement-link" href="/presentation-de-l-udsp31.html">Présentation de l'udsp 31</a>
+                                </li>
+                                <li class="NavElementSub-element">
+                                    <a class="NavElement-link" href="/le-bureau.html">Le bureau</a>
+                                </li>
+                            </ul>
+                        </li>
+   
+                        <li class="Nav-elementList NavElement">
+                            <a class="NavElement-link" href="/les-commissions.html">Les commissions</a>
+                            <ul class="NavElement-sub NavElementSub">
+                                <li class="NavElementSub-element">
+                                    <a class="NavElement-link" href="/2015/06/les-anciens-sapeurs-pompiers.html">Anciens sapeurs-pompiers</a>
+                                </li>
+                                <li class="NavElementSub-element">
+                                    <a class="NavElement-link" href="/2015/06/les-jeunes-sapeurs-pompiers-jsp.html">Jeunes sapeurs pompiers JSP</a>
+                                    <ul class="NavElementSub-sub NavElementSubSub">
+                                        <li class="NavElementSubSub-element">
+                                            <a class="NavElement-link" href="/1-sections-jsp-de-la-haute-garonne.html">Sections JSP de la Haute Garonne</a>    
+                                        </li>
+                                        <li class="NavElementSubSub-element">
+                                            <a class="NavElement-link" href="/conditions-pour-integrer-une-section-jsp.html"> Conditions pour intégrer une section JSP</a>
+                                        </li>
+                                        <li class="NavElementSubSub-element">
+                                            <a class="NavElement-link" href="https://www.youtube.com/watch?v=56LdL6qdUdY"> Photos et Vidéos des JSP</a>
+                                            <!-- SUBSUBSUB -->
+                                        </li>
+                                        <li class="NavElementSubSub-element">
+                                            <a class="NavElement-link" href="/page-list/jsp"> Infos, actualités et évènements</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="NavElementSub-element">
+                                    <a class="NavElement-link" href="/tag/sport/">Sport</a>
+                                    <ul class="NavElementSub-sub NavElementSubSub">
+                                        <li class="NavElementSubSub-element">
+                                            <a class="NavElement-link" href="/2015/06/le-sport.html">Les responsables des sports</a>    
+                                        </li>
+                                          <li class="NavElementSubSub-element">
+                                            <a class="NavElement-link" href="/tag/pétanque/">Pétanque</a>    
+                                        </li>
+                                       
+                                    </ul>
+                                </li>
+                                <li class="NavElementSub-element">
+                                    <a class="NavElement-link" href="/commission-secourisme.html">Secourisme</a>
+                                    <ul class="NavElementSub-sub NavElementSubSub">
+                                        <li class="NavElementSubSub-element">
+                                        <a class="NavElement-link" href="/prochaines-formations-de-secourisme.html">Les formations de secourisme</a>    
+                                        </li>
+                                   <li class="NavElementSubSub-element">
+                                            <a class="NavElement-link" href="/prochaines-formations-de-secourisme.html">Prochaines formations</a>    
+                                        </li>
+                                        <li class="NavElementSubSub-element">
+                                       <a class="NavElement-link" href="/psc1-toulouse.html">Formation PSC1</a>    
+                                   </li>
+                                     <li class="NavElementSubSub-element">
+                                            <a class="NavElement-link" href="/prochaines-formations-de-secourisme.html">Formation PSE1</a>    
+                                        </li>
+                                            <li class="NavElementSubSub-element">
+                                            <a class="NavElement-link" href="/prochaines-formations-de-secourisme.html">Formation PSE2</a>    
+                                        </li>
+                                        <li class="NavElementSubSub-element">
+                                            <a class="NavElement-link" href="/2015/07/prochaines-formations-de-secourisme.html">Formation SST</a>    
+                                        </li>
+
+                                        </ul>
+                                </li>
+                                <li class="NavElementSub-element">
+                                    <a class="NavElement-link" href="/2015/06/les-sapeurs-pompiers-volontaires-spv.html">Sapeurs-Pompiers Volontaires (SPV)</a>
+                                    <ul class="NavElementSub-sub NavElementSubSub">
+                                        <li class="NavElementSubSub-element">
+                                            <a class="NavElement-link" href="/2015/07/demarches-a-suivre-pour-devenir-pompier-volontaire.html">Démarches a suivre pour devenir pompier volontaire</a>    
+                                        </li>
+                                        <li class="NavElementSubSub-element">
+                                            <a class="NavElement-link" href="{{ Blog.Url }}"></a>    
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="NavElementSub-element">
+                                    <a class="NavElement-link" href="/les-sapeurs-pompiers-professionnels-spp.html">Sapeurs-Pompiers Professionnels (SPP)</a>
+                                    <ul class="NavElementSub-sub NavElementSubSub">
+                                        <li class="NavElementSubSub-element">
+                                            <a class="NavElement-link" href="/concours-externe-de-lieutenant.html">Concours externe de Lieutenant</a>    
+                                        </li>
+                                        <li class="NavElementSubSub-element">
+                                            <a class="NavElement-link" href="/concours-par-voie-externe.html">Concours par voie externe</a>    
+                                        </li>
+                                        <li class="NavElementSubSub-element">
+                                            <a class="NavElement-link" href="/concours-par-voie-interne.html">Concours par voie interne</a>    
+                                        </li>
+                                        <li class="NavElementSubSub-element">
+                                            <a class="NavElement-link" href="http://www.udsp31.fr/reforme-majeure-de-la-filiere-spp.html">Réforme majeure de la filière SPP impliquant les SPV</a>    
+                                        </li>
+                                        <li class="NavElementSubSub-element">
+                                            <a class="NavElement-link" href="/reforme-majeure-de-la-filiere-spp.html">Réforme majeure de la filière SPP</a>    
+                                        </li>
+                             </ul>
+                        </li>
+                                <li class="NavElementSub-element">
+                                    <a class="NavElement-link" href="/le-social.html">Le social</a>
+                                </li>
+                                                                <li class="NavElementSub-element">
+                                    <a class="NavElement-link" href="/les-dispositifs-previsionnels-de-secours-dps-7.html">Dispositifs Prévisionnels de Secours</a>
+                                </li>
+                                                                <li class="NavElementSub-element">
+                                    <a class="NavElement-link" href="/service-de-sante-et-de-secours-medical-1.html">Service de Santé et de Secours Médical</a>
+                                </li>
+                                                                <li class="NavElementSub-element">
+                                    <a class="NavElement-link" href="/commission-communication.html">Communication</a>
+                                </li>
+                                <li class="NavElementSub-element">
+                                    <a class="NavElement-link" href="/les-responsables-des-commissions.html">Les responsables des commissions</a>
+                                </li>
+                            </ul>
+                        </li>
+                        
+                        <li class="Nav-elementList NavElement">
+                            <a class="NavElement-link" href="/les-centres-de-secours.html">Les centres de secours</a>
+                            <ul class="NavElement-sub NavElementSub">
+                                <li class="NavElementSub-element">
+                                    <a class="NavElement-link" href="/coordonnees-des-c-i-s-de-la-haute-garonne.html">Coordonnées des C.I.S de la Haute-Garonne</a>
+                                </li>
+                                <li class="NavElementSub-element">
+                                    <a class="NavElement-link" href="/les-chefs-de-centres.html">Chefs de centre</a>
+                                </li>
+                                <li class="NavElementSub-element">
+                                    <a class="NavElement-link" href="/les-presidents-d-amicales.html">Présidents d'amicales</a>
+                                </li>
+                            </ul>
+                        </li>
+            
+                        <li class="Nav-elementList NavElement">
+                            <a class="NavElement-link" href="/les-partenaires.html">Partenaires</a>
+                        </li>
+
+                        <li class="Nav-elementList NavElement">
+                            <a class="NavElement-link" href="/contact" title="{{ Lang.Get('Contact us') }}">{{ Lang.Get('Contact') }}</a>   
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        
+        {% if Blog.isAdEnabled %}
+        <div class="Ad--970x90">
+            {% ad(15) %}
+        </div>
+        {% endif %}
+            
+        <!-- Content -->
+        <div class="Content {% if isIndex or isTag or isSearch or isArchive %}Content--index{% elseif isSpecial %}Content--special{% else %}Content--page{% endif %}">
+            {% if isSpecial %}
+                <div class="Content-main">
+                    {{ SpecialContent }}
+                </div>
+            {% else %}
+            
+           <div class="Content-main">  
+                {% if isSearch %}
+                    <h3 class="Title">
+                        {{ Lang.Get('Search for') }} &ldquo;{{ Search.Keyword }}&rdquo;
+                    </h3>
+                    {% if Posts is empty %}
+                        <div>
+                            <p>{{ Lang.Get('No result for this expression') }}.<p>
+                        </div>
+                    {% endif %}
+                {% elseif isTag %}
+                    <h3 class="Title">
+                        Les articles "{{ Tag.Title}}"
+                    </h3>
+                {% elseif isArchive %}
+                    
+                {% endif %}
+
+                {% if isIndex or isTag or isSearch or isArchive %}
+                    <div class="PostPreview-container">
+                    {% list Posts %}
+                         <div class="PostPreview PostPreview--{{ Post.Sources[0] }}">
+                            {% if not isSingle %}
+                            <div class="PostPreview-cover">
+                                <a href="{{ Post.Permalink }}">
+                                    {% if Post.Cover is not empty %}
+                                    <img class="PostPreview-coverImage" src="{{ Post.Cover|resize(630, 400)|crop }}" alt="{{ Post.Title }}"/>
+                                    {% elseif Custom('default_post_cover') is not empty %}
+                                    <img class="PostPreview-coverImage" src="{{ Custom('default_post_cover')|resize(630, 400)|crop }}" alt="{{ Post.Title }}"/>
+                                    {% else %}
+                                    <img class="PostPreview-coverImage" src="{{ 'http://assets.over-blog.com/t/cedistic/camera.png' }}" alt="{{ Post.Title }}"/>
+                                    {% endif %}
+                                </a>
+                                {% if Post.Tags|length > 0 %}
+                                <span class="PostPreview-tags">
+                                    {% list Post.Tags %} 
+                                        <a href="{{ Tag.Url }}">{{ Tag.Title }}</a>{% if not loop.last %}, {% endif %}
+                                    {% endlist %} 
+                                </span>
+                                {% endif %}
+                            </div>
+                            {% endif %}
+                            <div class="PostPreview-content">
+                                <p class="PostPreview-meta PostPreviewMeta">
+                                    {% if Post.Date %}
+                                    <span class="PostPreviewMeta-date">
+                                        {{ Post.Date | datel(Lang.Get('Default date format')) | title }}
+                                    </span>
+                                    {% endif %}
+                                    
+                                    <span class="PostPreviewMeta-source">
+                                        {{ Lang.Get('From') }}
+                                        {% if Post.Sources[0] == "OB" %}
+                                            Overblog
+                                        {% elseif Post.Sources[0] in ["FB", "FP"] %}
+                                            Facebook
+                                        {% elseif Post.Sources[0] == "TW" %}
+                                            Twitter
+                                        {% elseif Post.Sources[0] == "GP" %}                                   
+                                            Google +
+                                        {% elseif Post.Sources[0] == "PT" %}
+                                            Pinterest
+                                        {% elseif Post.Sources[0] == "IG" %}
+                                            Instagram
+                                        {% elseif Post.Sources[0] == "FS" %}
+                                            Foursquare
+                                        {% elseif Post.Sources[0] == "YT" %}
+                                            Youtube
+                                        {% elseif Post.Sources[0] == "FL" %}
+                                            Flickr
+                                        {% elseif Post.Sources[0] == "RSS" %}
+                                            Rss
+                                        {% endif %}
+                                    </span>
+                                    
+                                    <span class="PostPreviewMeta-comments">
+                                        <span class="fa fa-comment-o"></span>
+                                        {% if Custom("comment") == "Disqus" and Custom('comment_disqus') is not empty %}
+                                        <span class="disqus-comment-count" data-disqus-url="{{ Post.Permalink }}"></span>
+                                        {% else %}
+                                            {{ Post.CommentCount(
+                                                '%c',
+                                                '%c',
+                                                '0'
+                                            ) }} 
+                                        {% endif %}
+                                    </span>
+                                </p>
+                                <h2 class="PostPreview-title">
+                                    {% if Post.Title is not empty %}
+                                        <a href="{{ Post.Permalink }}">{{ Post.Title }}</a>
+                                    {% endif %}
+                                </h2>
+                                <p class="PostPreview-snippet">
+                                    {{ Post.snippet(110) }}
+                                </p>
+                                <a class="PostPreview-readMore" href="{{ Post.Permalink }}" title="{{ Lang.Get('Read more about') }}">{{ Lang.Get('Read more about') }}</a> 
+                            </div>
+                        </div>
+                    {% endlist %}
+                    </div>
+                {% else %}
+                    {% if Posts is not empty %}
+                        {% list Posts %}
+                        <div class="Post Post--{{ Post.Sources[0] }}">
+                            {% if Post.Tags|length > 0 %}
+                            <span class="Post-tags">
+                                {% list Post.Tags %} 
+                                    <a class="Post-tag" href="{{ Tag.Url }}" title="{{ Tag.Title }}">{{ Tag.Title }}</a>{% if not loop.last %}, {% endif %}
+                                {% endlist %}   
+                            </span>
+                            {% endif %}
+                                
+                            {% if Post.Title is not empty %}
+                            <h2 class="Post-title">
+                                
+                                <a class="Post-titleLink" href="{{ Post.Permalink }}" title="{{ Lang.Get('Read more about') }}{% if Post.Title is not empty %} : {{ Post.Title }}{% endif %}">
+                                    {{ Post.Title }}
+                                </a>
+                            </h2>
+                            {% endif %}
+                            
+                            {% if Post.Date %}
+                            <p class="Post-date">
+                                {{ Post.Date | datel(Lang.Get('Default date format')) | title }}
+                            </p>
+                            {% endif %}
+                            
+                            {% if Post.Author.Nickname %}
+                            <p class="Post-author">
+                                {{ Lang.Get('Written by') }} {{ Post.Author.Nickname }} {{ Lang.Get('and') }} {{ Lang.Get('from') }}
+                                {% if Post.Sources[0] == "OB" %}
+                                Overblog
+                                {% elseif Post.Sources[0] in ["FB", "FP"] %}
+                                    Facebook
+                                {% elseif Post.Sources[0] == "TW" %}
+                                    Twitter
+                                {% elseif Post.Sources[0] == "GP" %}                                   
+                                    Google +
+                                {% elseif Post.Sources[0] == "PT" %}
+                                    Pinterest
+                                {% elseif Post.Sources[0] == "IG" %}
+                                    Instagram
+                                {% elseif Post.Sources[0] == "FS" %}
+                                    Foursquare
+                                {% elseif Post.Sources[0] == "YT" %}
+                                    Youtube
+                                {% elseif Post.Sources[0] == "FL" %}
+                                    Flickr
+                                {% elseif Post.Sources[0] == "RSS" %}
+                                    Rss
+                                {% endif %}
+                            </p>
+                            {% endif %}
+                                
+                            {% if isSingle %}
+                                <div class="Post-body">
+                                    {{ Post.Body }}
+                                </div>
+                            
+                                {% if (Navigation.PreviousPost is not empty or Navigation.NextPost is not empty) %}
+                                <div class="Post-pagination Pagination Pagination--post">
+                                    {% if Navigation.PreviousPost is not empty %}
+                                        <a href="{{ Navigation.PreviousPost.Permalink }}" title="{{ Navigation.PreviousPost.Title }}" class="PaginationLink PaginationLink--previous">&laquo; {{ Lang.Get('Previous post') }}</a>
+                                    {% endif %}
+            
+                                    {% if Navigation.NextPost is not empty %}
+                                        <a href="{{ Navigation.NextPost.Permalink }}" title="{{ Navigation.NextPost.Title }}" class="PaginationLink PaginationLink--next">{{ Lang.Get('Next post') }} &raquo;</a>
+                                    {% endif %}
+                                </div>
+        
+                                {% endif %}
+                            
+                                <div class="Post-returnToHome">
+                                    <a href="{{ Blog.Url }}">{{ Lang.Get('Return to home') }}</a>
+                                </div>
+                                
+                                {{ Post.Shares }}
+                                {{ Post.related }}
+                                {% outbrain %}
+                                
+                            {% else %}
+                                <figure class="Post-cover">
+                                    {% if Post.Cover is not empty %}
+                                    <img class="Post-coverImage" src="{{ Post.Cover|resize(640, 420)|crop }}" alt="{{ Post.Title }}"/>
+                                    {% elseif Custom('default_post_cover') is not empty %}
+                                    <img class="Post-coverImage" src="{{ Custom('default_post_cover')|resize(640, 420)|crop }}" alt="{{ Post.Title }}"/>
+                                    {% endif %}
+                                </figure>
+                                
+                                {% if Post.snippet is not empty %}
+                                <p class="Post-snippet">
+                                    {{ Post.snippet }}
+                                </p>
+                                
+                                <a href="{{ Post.Permalink }}" class="Post-readMore">
+                                    {{ Lang.Get('Read more about') }}  
+                                </a>
+                                {% endif %}  
+                                
+                                <div class="Post-shares PostShares">
+                                    {% if Custom('share_facebook') is not null and Custom('share_facebook') == true %}
+                                    <a class="PostShares-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ Post.Permalink }}&t={% if Post.Title is not empty %}{{ Post.Title }}{% elseif Post.Snippet is not empty %}{{ Post.Snippet}}{% else %}{{ Blog.Title }}{% endif %}" target="_blank" onclick="window.open(this.href, 'mywin', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0,location=0'); return false;">
+                                        <span class="fa fa-fw fa-facebook"></span>
+                                    </a>
+                                    {% endif %}
+                                    
+                                    {% if Custom('share_twitter') is not null and Custom('share_twitter') == true %}
+                                    <a class="PostShares-twitter" href="https://twitter.com/share?url={{ Post.Permalink }}&related=twitterapi%2Ctwitter&hashtags={% list Post.Tags %}{{ Tag.Title }}{% if not loop.last %},{% endif %}{% endlist %} &text={% if Post.Title is not empty %}{{ Post.Title }}{% elseif Post.Snippet is not empty %}{{ Post.Snippet}}{% else %}{{ Blog.Title }}{% endif %}&lang={{ Blog.Lang }}{% if Custom('twitter_username') is not empty %}&via={{Custom('twitter_username')}}{% endif %}" 
+            
+            data-text="{% if Post.Title is not empty %}{{ Post.Title }}{% elseif Post.Snippet is not empty %}{{ Post.Snippet}}{% else %}{{ Blog.Title }}{% endif %}" data-url="{{ Post.Permalink }}" data-lang="{{ Blog.Lang }}"{% if Custom('twitter_username') is not empty %} data-via="{{Custom('twitter_username')}}"{% endif %} target="_blank" onclick="window.open(this.href, 'mywin',
+            'left=20,top=20,width=500,height=500,toolbar=1,resizable=0,location=0'); return false;">
+                                        <span class="fa fa-fw fa-twitter"></span>
+                                    </a>
+                                    {% endif %}
+                                    
+                                    {% if Custom('share_googleplus') is not null and Custom('share_googleplus') == true %}
+                                    <a class="PostShares-googlePlus" href="https://plus.google.com/share?url={{ Post.Permalink }}" target="_blank" onclick="window.open(this.href, 'mywin',
+            'left=20,top=20,width=500,height=500,toolbar=1,resizable=0,location=0'); return false;">
+                                        <span class="fa fa-fw fa-google-plus"></span>
+                                    </a>
+                                    {% endif %}
+                                    
+                                    {% if Custom('share_pinterest') is not null and Custom('share_pinterest') == true and Post.Cover is not empty %}
+                                    <a class="PostShares-pinterest" href="https://www.pinterest.com/pin/create/button/?url={{ Post.Permalink | url_encode }}&media={{ Post.cover | url_encode }}&description={{ Post.snippet | url_encode }}" target="_blank" onclick="window.open(this.href, 'mywin','left=20,top=20,width=500,height=500,toolbar=1,resizable=0,location=0'); return false;">
+                                        <span class="fa fa-fw fa-pinterest"></span>
+                                    </a>
+                                    {% endif %}
+                                    
+                                    {% if Custom('share_linkedin') is not null and Custom('share_linkedin') == true %}
+                                    <a class="PostShares-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url={{ Post.Permalink | url_encode }}{% if Post.Title is not empty %}&title={{ Post.Title }}{% endif %}&summary={{ Post.snippet | url_encode }}" target="_blank" onclick="window.open(this.href, 'mywin','left=20,top=20,width=500,height=500,toolbar=1,resizable=0,location=0'); return false;">
+                                        <span class="fa fa-fw fa-linkedin"></span>
+                                    </a>
+                                    {% endif %}
+                                    
+                                    
+                                    {% if Custom('share_overblog') is not null and Custom('share_overblog') == true %}
+                                    <a class="PostShares-overblog" href="http://my.over-blog.com/repost.html?repost={{ Post.Permalink }}" target="_blank" onclick="window.open(this.href, 'mywin',
+            'left=20,top=20,width=500,height=500,toolbar=1,resizable=0,location=0'); return false;">
+                                        <span class="fa fa-fw fa-retweet"></span>
+                                    </a>
+                                    {% endif %}
+                                </div>
+                            
+                            {% endif %}
+                            
+                            </div>
+                        {% endlist %} 
+                    {% else %}
+                        <p>{{ Lang.Get("No post found") }}. <a href="{{ Blog.Url }}">{{ Lang.Get('Go back home') }}</a><p>
+                    {% endif %}
+                {% endif %}
+                <div class="Pagination">
+                    {% pagination %}
+                </div>
+            
+            
+                {% if Custom('display_widget_biography') == true and not isIndex and not isTag and not isSearch and not isArchive %}
+                <!-- About me box -->
+                <div class="Post-about PostAbout">
+                    <h3 class="Title">{{ Lang.Get('About me') }}</h3>
+                    <div> 
+                        {% if Blog.Owner.Avatar is not empty %}
+    
+                        <img class="PostAbout-avatar" src="{{ Blog.Owner.Avatar | resize(70, 70) | crop }}" alt="{{ Blog.Owner.Nickname }}" width="70" height="70" align="left" />
+                        {% endif %}
+                        <p class="PostAbout-description">
+                            {{ Blog.Owner.Bio }}
+                        </p>
+                    </div>
+                </div>
+                {% endif %}
+            
+            
+                {% if isSingle and not isPage and Post.ShowComments is not empty and Post.ShowComments%}
+                <!-- Comments box -->
+                <div class="Comments">
+                    <h3 class="Title">{{ Lang.Get('Comment this post') }}</h3>
+                    <div>
+                        {% if Custom("comment") == "Facebook" %}
+                            <div class="fb-comments" data-href="{{ Post.Permalink }}" data-num-posts="2" data-width="700" data-colorscheme="light"></div>
+                        {% elseif Custom("comment") == "Disqus" and Custom('comment_disqus') is not empty %}
+                            <div id="disqus_thread"></div>
+                            <script type="text/javascript">
+                                var disqus_shortname = '{{ Custom('comment_disqus') }}';
+                                (function() {
+                                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                                    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                                })();
+                            </script>
+                            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                        {% else %}
+                            {{ Post.Comments }}
+                        {% endif %}
+                    </div>  
+                </div>
+                {% endif %}
+            </div>
+            {% endif %}
+            
+            <!-- Sidebar -->
+            <aside class="Sidebar">
+                {% if Custom('display_widget_subscribe') == true %}
+                <div class="Sidebar-widget" style="order: {{ Custom('position_widget_subscribe') }}">
+                    <h3 class="Sidebar-title">
+                        {{ Lang.Get('Subscribe') }}
+                    </h3>
+                    <form class="Sidebar-form" action="/mail/subscribe" method="post">
+                        <input class="ob-input SidebarForm-input" type="email" name="email" placeholder="{{ Lang.Get('Email_Example') }}" required="required" />
+                        <input class="ob-input ob-input-submit SidebarForm-submit" type="submit" value="{{ Lang.Get('Subscribe') }}" />
+                    </form>   
+                </div>
+                {% endif %}
+                
+                {% if Custom('display_widget_follow') == true %}
+                <div class="Sidebar-widget" style="order: {{ Custom('position_widget_follow') }}">
+                    <h3 class="Sidebar-title">
+                        {{ Lang.Get('Follow me') }}     
+                    </h3>
+                    <ul class="Sidebar-widget Sidebar-follow SidebarFollow">
+                        {% if Custom('facebook_username') %}
+                            <li class="SidebarFollow-element">
+                                <a class="SidebarFollow-elementLink  SidebarFollow-elementLink--facebook" href="http://facebook.com/{{ Custom('facebook_username') }}" target="_blank">
+                                    <span class="fa fa-fw fa-facebook"></span>
+                                </a>
+                            </li>
+                        {% endif %}
+                        {% if Custom('twitter_username') %}
+                            <li class="SidebarFollow-element">
+                                <a class="SidebarFollow-elementLink SidebarFollow-elementLink--twitter" href="http://twitter.com/{{ Custom('twitter_username') }}" target="_blank">
+                                    <span class="fa fa-fw fa-twitter"></span>
+                                </a>
+                            </li>
+                        {% endif %}
+                        {% if Custom('googleplus_username') %}
+                            <li class="SidebarFollow-element">
+                                <a class="SidebarFollow-elementLink SidebarFollow-elementLink--googleplus" href="https://plus.google.com/{{ Custom('googleplus_username') }}" target="_blank">
+                                    <span class="fa fa-fw fa-google-plus"></span>
+                                </a>
+                            </li>
+                        {% endif %}
+                        {% if Custom('pinterest_username') %}
+                            <li class="SidebarFollow-element">
+                                <a class="SidebarFollow-elementLink SidebarFollow-elementLink--pinterest" href="http://pinterest.com/{{ Custom('pinterest_username') }}" target="_blank">
+                                    <span class="fa fa-fw fa-pinterest"></span>
+                                </a>
+                            </li>
+                        {% endif %}
+                        {% if Custom('instagram_username') %}
+                            <li class="SidebarFollow-element">
+                                <a class="SidebarFollow-elementLink SidebarFollow-elementLink--instagram" href="http://instagram.com/{{ Custom('instagram_username') }}" target="_blank">
+                                    <span class="fa fa-fw fa-instagram"></span>
+                                </a>
+                            </li>
+                        {% endif %}
+                        <li class="SidebarFollow-element">
+                            <a class="SidebarFollow-elementLink SidebarFollow-elementLink--rss" href="{{ Blog.RssUrl }}" target="_blank">
+                                <span class="fa fa-fw fa-rss"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                {% endif %}
+                
+                {% if Custom('display_widget_search_form') == true %}
+                <div class="Sidebar-widget" style="order: {{ Custom('position_widget_search_form') }}">
+                    <h3 class="Sidebar-title">
+                        {{ Lang.Get('Search') }}
+                    </h3>
+                    <form class="Sidebar-form" action="/search" method="post">
+                        <input class="ob-input SidebarForm-input" tsize="32" maxlength="64" type="text" name="q" placeholder="{{ Lang.Get('Search') }}..." required="required" />
+                        <input class="ob-input ob-input-submit SidebarForm-submit" type="submit" value="{{ Lang.Get('OK') }}" />
+                    </form>   
+                </div>                  
+                {% endif %}
+                
+                {% if Blog.isAdEnabled %}
+                    <div class="Sidebar-ad--300x600">
+                    {% ad(6) with {'background' : '#FFFFFF', 'text' : '#787878', 'url' : '#333', 'link' : '#333', 'border' : '#FFFFFF'} %}
+                    </div>
+                {% endif %}
+                
+                {% if Custom('display_widget_about') == true %}
+                <div class="Sidebar-widget Sidebar-about SidebarAbout" style="order: {{ Custom('position_widget_about') }}">
+                    <h3 class="Sidebar-title">
+                        {{ Blog.Title }}
+                    </h3>
+                    {% if Blog.Avatar is not empty %}
+                    <img class="SidebarAbout-avatar" src="{{ Blog.Avatar | resize(300, 300) | crop }}" alt="{{ Blog.Title }}" />
+                    {% endif %}
+                    <p class="SidebarAbout-description">
+                        {{ Blog.Description }}
+                    </p>
+                </div>
+                {% endif %}
+                
+                {% if Blog.isAdEnabled %}
+                    <div class="Sidebar-ad--300x250">
+                    {% ad(1) with {'background' : '#FFFFFF', 'text' : '#787878', 'url' : '#333', 'link' : '#333', 'border' : '#FFFFFF'} %}
+                    </div>
+                {% endif %}
+                
+                {% if Custom('display_widget_twitter') == true and Custom('twitter_title') and Custom('twitter_number') is not empty and (Blog.Posts(Custom('twitter_number'), ['TW'])|length > 0) %}
+                <div class="Sidebar-widget"  style="order: {{ Custom('position_widget_twitter') }}">    
+                    <h3 class="Sidebar-title">
+                        {{ Custom('twitter_title') }}
+                    </h3>
+                    <div class="Sidebar-posts">
+                        {% list Blog.Posts(Custom('twitter_number'), ['TW']) %}
+                        <div class="Sidebar-post PostPreview">
+                            <div class="PostPreview-content">
+                                {{ Post.Body(1) }}
+                            </div>
+                        </div>
+                        {% endlist %}
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if Custom('display_widget_facebook') == true and Custom('facebook_title') and Custom('facebook_number') is not empty and (Blog.Posts(Custom('facebook_number'), ['FB', 'FP'])|length > 0) %}
+                <div class="Sidebar-widget" style="order: {{ Custom('position_widget_facebook') }}">
+                    <h3 class="Sidebar-title">
+                        {{ Custom('facebook_title') }}
+                    </h3>
+                    <div class="Sidebar-posts">
+                        {% list Blog.Posts(Custom('facebook_number'), ['FB', 'FP']) %}
+                        <div class="Sidebar-post PostPreview">
+                            {% if Custom('sidebar_display_cover_cover') == true %}
+                            <figure class="PostPreview-cover">
+                                <a href="{{ Post.Permalink }}">
+                                    {% if Post.Cover is not empty %}
+                                    <img class="PostPreview-coverImage" src="{{ Post.Cover|resize(630, 400)|crop }}" alt="{{ Post.Title }}"/>
+                                    {% elseif Custom('default_post_cover') is not empty %}
+                                    <img class="PostPreview-coverImage" src="{{ Custom('default_post_cover')|resize(630, 400)|crop }}" alt="{{ Post.Title }}"/>
+                                    {% else %}
+                                    <img class="PostPreview-coverImage" src="{{ 'http://assets.over-blog.com/t/cedistic/camera.png' }}" alt="{{ Post.Title }}"/>
+                                    {% endif %}
+                                </a>
+                            </figure>
+                            {% endif %}
+                            <div class="PostPreview-content">
+                                <p class="PostPreview-meta PostPreviewMeta">
+                                    {% if Post.Date %}
+                                    <span class="PostPreviewMeta-date">
+                                        {{ Post.Date | datel(Lang.Get('Default date format')) | title }}
+                                    </span>
+                                    {% endif %}
+                                </p>
+                                <h2 class="PostPreview-title">
+                                    {% if Post.Title is not empty %}
+                                        <a href="{{ Post.Permalink }}">{{ Post.Title }}</a>
+                                    {% endif %}
+                                </h2>
+                            </div>
+                        </div>
+                        {% endlist %}
+                    </div>
+                </div>
+                {% endif %}
+                
+                {% if Custom('display_widget_googleplus') == true and Custom('googleplus_title') and Custom('googleplus_number') is not empty and (Blog.Posts(Custom('googleplus_number'), ['GP'])|length > 0) %}
+                <div class="Sidebar-widget" style="order: {{ Custom('position_widget_googleplus') }}">
+                    <h3 class="Sidebar-title">
+                        {{ Custom('googleplus_title') }}
+                    </h3>
+                    <div class="Sidebar-posts">
+                        {% list Blog.Posts(Custom('googleplus_number'), ['GP']) %}
+                        <div class="Sidebar-post PostPreview">
+                            {% if Custom('sidebar_display_cover_cover') == true %}
+                            <figure class="PostPreview-cover">
+                                <a href="{{ Post.Permalink }}">
+                                    {% if Post.Cover is not empty %}
+                                    <img class="PostPreview-coverImage" src="{{ Post.Cover|resize(630, 400)|crop }}" alt="{{ Post.Title }}"/>
+                                    {% elseif Custom('default_post_cover') is not empty %}
+                                    <img class="PostPreview-coverImage" src="{{ Custom('default_post_cover')|resize(630, 400)|crop }}" alt="{{ Post.Title }}"/>
+                                    {% else %}
+                                    <img class="PostPreview-coverImage" src="{{ 'http://assets.over-blog.com/t/cedistic/camera.png' }}" alt="{{ Post.Title }}"/>
+                                    {% endif %}
+                                </a>
+                            </figure>
+                            {% endif %}
+                            <div class="PostPreview-content">
+                                <p class="PostPreview-meta PostPreviewMeta">
+                                    {% if Post.Date %}
+                                    <span class="PostPreviewMeta-date">
+                                        {{ Post.Date | datel(Lang.Get('Default date format')) | title }}
+                                    </span>
+                                    {% endif %}
+                                </p>
+                                <h2 class="PostPreview-title">
+                                    {% if Post.Title is not empty %}
+                                        <a href="{{ Post.Permalink }}">{{ Post.Title }}</a>
+                                    {% endif %}
+                                </h2>
+                            </div>
+                        </div>
+                        {% endlist %}
+                    </div>
+                </div>
+                {% endif %}
+                
+                {% if Custom('display_widget_foursquare') == true and Custom('foursquare_title') and Custom('foursquare_number') is not empty and (Blog.Posts(Custom('foursquare_number'), ['FS'])|length > 0) %}
+                <div class="Sidebar-widget" style="order: {{ Custom('position_widget_foursquare') }}">
+                    <h3 class="Sidebar-title">
+                        {{ Custom('foursquare_title') }}
+                    </h3>
+                    <div class="Sidebar-posts">
+                        {% list Blog.Posts(Custom('foursquare_number'), ['FS']) %}
+                        <div class="Sidebar-post PostPreview">
+                            {% if Custom('sidebar_display_cover_cover') == true %}
+                            <figure class="PostPreview-cover">
+                                <a href="{{ Post.Permalink }}">
+                                    {% if Post.Cover is not empty %}
+                                    <img class="PostPreview-coverImage" src="{{ Post.Cover|resize(630, 400)|crop }}" alt="{{ Post.Title }}"/>
+                                    {% elseif Custom('default_post_cover') is not empty %}
+                                    <img class="PostPreview-coverImage" src="{{ Custom('default_post_cover')|resize(630, 400)|crop }}" alt="{{ Post.Title }}"/>
+                                    {% else %}
+                                    <img class="PostPreview-coverImage" src="{{ 'http://assets.over-blog.com/t/cedistic/camera.png' }}" alt="{{ Post.Title }}"/>
+                                    {% endif %}
+                                </a>
+                            </figure>
+                            {% endif %}
+                            <div class="PostPreview-content">
+                                <p class="PostPreview-meta PostPreviewMeta">
+                                    {% if Post.Date %}
+                                    <span class="PostPreviewMeta-date">
+                                        {{ Post.Date | datel(Lang.Get('Default date format')) | title }}
+                                    </span>
+                                    {% endif %}
+                                </p>
+                                <h2 class="PostPreview-title">
+                                    {% if Post.Title is not empty %}
+                                        <a href="{{ Post.Permalink }}">{{ Post.Title }}</a>
+                                    {% endif %}
+                                </h2>
+                            </div>
+                        </div>
+                        {% endlist %}
+                    </div>
+                </div>
+                {% endif %}
+                
+                {% if Custom('display_widget_instagram') == true and Custom('instagram_title') and Custom('instagram_number') is not empty and (Blog.Posts(Custom('instagram_number'), ['IG'])|length > 0) %}
+                <div class="Sidebar-widget" style="order: {{ Custom('position_widget_instagram') }}">
+                    <h3 class="Sidebar-title">
+                        {{ Custom('instagram_title') }}
+                    </h3>
+                    <div class="Sidebar-posts">
+                        {% list Blog.Posts(Custom('instagram_number'), ['IG']) if Post.Cover is not empty %}
+                        <div class="Sidebar-post PostPreview">
+                            <figure class="PostPreview-cover">
+                                <a href="{{ Post.Permalink }}" title="{{ Post.title }}">
+                                    <img class="Post-coverImage" src="{{ Post.Cover|resize(640, 420)|crop }}" alt="{{ Post.Title }}"/>
+                                </a>
+                            </figure>
+                        </div>
+                        {% endlist %}
+                    </div>
+                </div>
+                {% endif %}
+                
+                {% if Custom('display_widget_youtube') == true and Custom('youtube_title') and Custom('youtube_number') is not empty and (Blog.Posts(Custom('youtube_number'), ['YT'])|length > 0) %}
+                <div class="Sidebar-widget" style="order: {{ Custom('position_widget_youtube') }}">
+                    <h3 class="Sidebar-title">
+                        {{ Custom('youtube_title') }}
+                    </h3>
+                    <div class="Sidebar-posts">
+                        {% list Blog.Posts(Custom('youtube_number'), ['IG']) if Post.Cover is not empty %}
+                        <div class="Sidebar-post">
+                            {% list Post.Sections %}
+                                {% if Section.Type == 'video' %}
+                                    {{ Section.Body }}
+                                {% endif %}
+                            {% endlist %}
+                        </div>
+                        {% endlist %}
+                    </div>
+                </div>
+                {% endif %}
+                
+                {% if Custom('display_widget_flickr') == true and Custom('flickr_title') and Custom('flickr_number') is not empty and (Blog.Posts(Custom('flickr_number'), ['FL'])|length > 0) %}
+                <div class="Sidebar-widget" style="order: {{ Custom('position_widget_flickr') }}">
+                    <h3 class="Sidebar-title">
+                        {{ Custom('flickr_title') }}
+                    </h3>
+                    <div class="Sidebar-posts">
+                        {% list Blog.Posts(Custom('flickr_number'), ['FL']) if Post.Cover is not empty %}
+                        <div class="Sidebar-post">
+                            {% list Post.Sections %}
+                                {% if Section.Type == 'images' %}
+                                    {{ Section.Body }}
+                                {% endif %}
+                            {% endlist %}
+                        </div>
+                        {% endlist %}
+                    </div>
+                </div>
+                {% endif %}
+                
+                {% if Custom('display_widget_pinterest') == true and Custom('pinterest_title') and Custom('pinterest_number') is not empty and (Blog.Posts(Custom('pinterest_number'), ['FL'])|length > 0) %}             
+                <div class="Sidebar-widget" style="order: {{ Custom('position_widget_pinterest') }}">
+                    <h3 class="Sidebar-title">
+                        {{ Custom('pinterest_title') }}
+                    </h3>
+                    <div class="Sidebar-posts">
+                        {% list Blog.Posts(Custom('pinterest_number'), ['FL']) if Post.Cover is not empty %}
+                        <div class="Sidebar-post">
+                            {% list Post.Sections %}
+                                {% if Section.Type == 'images' %}
+                                    {{ Section.Body }}
+                                {% endif %}
+                            {% endlist %}
+                        </div>
+                        {% endlist %}
+                    </div>
+                </div>
+                {% endif %}
+                
+            
+                {% if Custom('display_widget_tumblr') == true and Custom('tumblr_title') and Custom('tumblr_number') is not empty and (Blog.Posts(Custom('tumblr_number'), ['TR'])|length > 0) %}
+                <div class="Sidebar-widget" style="order: {{ Custom('position_widget_tumblr') }}">
+                    <h3 class="Sidebar-title">
+                        {{ Custom('tumblr_title') }}
+                    </h3>
+                    <div class="Sidebar-posts">
+                        {% list Blog.Posts(Custom('tumblr_number'), ['TR']) if Post.Cover is not empty %}
+                        <div class="Sidebar-post PostPreview">
+                            {% if Custom('sidebar_display_cover_cover') == true %}
+                            <figure class="PostPreview-cover">
+                                <a href="{{ Post.Permalink }}">
+                                    {% if Post.Cover is not empty %}
+                                    <img class="PostPreview-coverImage" src="{{ Post.Cover|resize(630, 400)|crop }}" alt="{{ Post.Title }}"/>
+                                    {% elseif Custom('default_post_cover') is not empty %}
+                                    <img class="PostPreview-coverImage" src="{{ Custom('default_post_cover')|resize(630, 400)|crop }}" alt="{{ Post.Title }}"/>
+                                    {% else %}
+                                    <img class="PostPreview-coverImage" src="{{ 'http://assets.over-blog.com/t/cedistic/camera.png' }}" alt="{{ Post.Title }}"/>
+                                    {% endif %}
+                                </a>
+                            </figure>
+                            {% endif %}
+                            <div class="PostPreview-content">
+                                <p class="PostPreview-meta PostPreviewMeta">
+                                    {% if Post.Date %}
+                                    <span class="PostPreviewMeta-date">
+                                        {{ Post.Date | datel(Lang.Get('Default date format')) | title }}
+                                    </span>
+                                    {% endif %}
+                                </p>
+                                <h2 class="PostPreview-title">
+                                    {% if Post.Title is not empty %}
+                                        <a href="{{ Post.Permalink }}">{{ Post.Title }}</a>
+                                    {% endif %}
+                                </h2>
+                            </div>
+                        </div>
+                        {% endlist %}
+                    </div>
+                </div>
+                {% endif %}
+            
+                {% if Custom('display_widget_pages') == true and Blog.Pages is not empty %}
+                <div class="Sidebar-widget" style="order: {{ Custom('position_widget_pages') }}">
+                    <h3 class="Sidebar-title">
+                        {{ Custom('pages_title')|default(Lang.Get('Pages')) }}
+                    </h3>
+                    <ul class="Sidebar-list">
+                        {% list Blog.Pages %}
+                            <li><a href='{{ Page.Url }}'>{{ Page.Title }}</a></li>
+                        {% endlist %}
+                    </ul>
+                </div>
+                {% endif %}
+
+                {% if Custom('display_widget_tags') == true and Blog.PostsTags is not empty %}
+                <div class="Sidebar-widget" style="order: {{ Custom('position_widget_tags') }}">
+                    <h3 class="Sidebar-title">
+                        {{ Custom('tags_title')|default(Lang.Get('Categories')) }}
+                    </h3>
+                    <ul class="Sidebar-list">
+                        {% if Custom('tags_number') == '50NotRecommended' %}
+                            {% list Blog.PostsTags(50) %}
+                                <li {% if isTag and Tag.Title == PostsTag.Title %}class="active"{% endif %}>
+                                    <a href="{{ PostsTag.Url }}">
+                                        {{ PostsTag.Title|title }} ({{ PostsTag.PostCount }})
+                                    </a>
+                                </li>
+                            {% endlist %}
+                        {% else %}
+                            {% list Blog.PostsTags(Custom('tags_number')|default(10)) %}
+                                <li {% if isTag and Tag.Title == PostsTag.Title %}class="active"{% endif %}>
+                                    <a href="{{ PostsTag.Url }}">
+                                        {{ PostsTag.Title|title }} ({{ PostsTag.PostCount }})
+                                    </a>
+                                </li>
+                            {% endlist %}
+                        {% endif %}
+                    </ul>
+                </div>
+                {% endif %}
+                
+                {% if Custom('display_widget_free_html_1') == true %}
+                <div class="Sidebar-widget" style="order: {{ Custom('position_widget_free_html_1') }}">
+                    <h3 class="Sidebar-title">
+                        {{ Custom('free_title_1') }}
+                    </h3>
+                    <div class="Sidebar-content">
+                        {{ Custom('free_html_1') }}
+                    </div>
+                </div>
+                {% endif %}
+                
+                {% if Custom('display_widget_free_html_2') == true %}
+                <div class="Sidebar-widget" style="order: {{ Custom('position_widget_free_html_2') }}">
+                    <h3 class="Sidebar-title">
+                        {{ Custom('free_title_2') }}
+                    </h3>
+                    <div class="Sidebar-content">
+                        {{ Custom('free_html_2') }}
+                    </div>
+                </div>
+                {% endif %}
+            </aside>
+        </div>
+            
+        <!-- Footer -->
+        <div class="Footer">
+            <p class="Footer-content">
+                {% if Custom('custom_footer') is not empty %}
+                    {{ Custom('custom_footer') }}&nbsp;-&nbsp;
+                {% endif %}
+                {{ Lang.Get('Hosted by') }} <a href="http://www.over-blog.com" target="_blank">Overblog</a>
+            </p>
+
+        </div>
+
+    {% if Custom('google_analytics') is not empty %}
+        <!-- Google Analytics -->
+         <script type="text/javascript">
+            window.google_analytics_uacct = '{{Custom('google_analytics')}}';
+            var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', '{{Custom('google_analytics')}}']);
+                _gaq.push(['_trackPageview']);
+                _gaq.push(['_trackPageLoadTime']);
+
+            (function() {
+                var ga = document.createElement('script');
+                    ga.type = 'text/javascript';
+                    ga.async = true;
+                    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0];
+                    s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+    {% endif %}
+    
+    {% if Custom("comment") == "Disqus" and Custom('comment_disqus') is not empty %}
+        <script type="text/javascript">
+            var disqus_shortname = "{{ Custom('comment_disqus') }}";
+            (function () {
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+            }());
+        </script>
+    {% endif %}
+
+        <!-- jQuery onReady -->
+        <script type="text/javascript">
+            jQuery(document).ready(function() {
+                /* Menu */
+                $(".Nav-menuButton").click(function(){
+                    if($(".Nav-menu").hasClass("Nav-menu--open")) {
+                        $(".Nav-menu").removeClass("Nav-menu--open");
+                    } else {
+                        $(".Nav-menu").addClass("Nav-menu--open");
+                    }
+                });
+                
+                
+                /* Fancybox */
+                $(".ob-section-images a.ob-link-img").attr("rel", "fancybox-thumb");
+                $(".ob-section-images a.ob-link-img").fancybox({
+                    prevEffect    : 'none',
+                    nextEffect    : 'none',
+                    helpers    : {
+                        title    : {
+                            type: 'outside'
+                        },
+                        thumbs    : {
+                            width    : 50,
+                            height    : 50
+                        }
+                    },
+                    beforeShow: function(){
+                      $(".fancybox-skin").css("padding", "0");
+                      $(".fancybox-inner").css("width", "auto");
+                    }
+                });
+                
+            });
+        </script>
+        
+<div id="pop-slap" style="display: none" data-hello-text="Suivez nous sur Facebook !" data-close-text="Merci, je l'aime déjà." data-timeout="4"><script type="text/javascript" src="http://surlapage.fr/script/popup.js?fb_url=https://www.facebook.com/UDSP31&amp;fb_theme=dark&amp;chn=23512"></script></div>
+
+    </body>
+</html>
